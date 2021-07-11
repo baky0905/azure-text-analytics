@@ -3,10 +3,17 @@ from pydantic import BaseModel
 from utils import authenticate_client
 from dotenv import load_dotenv
 import os
+import logging
+from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 load_dotenv()
 
 app = FastAPI()
+
+logger = logging.getLogger(__name__)
+logger.setLevel(10)
+logger.addHandler(AzureLogHandler(
+    connection_string=os.getenv("INSTRUMENTATION_KEY")))
 
 
 class Model(BaseModel):
@@ -37,6 +44,14 @@ def sentiment_analysis_example(documents: Model):
             "confidence_scores": response[idx]["confidence_scores"],
             "sentences": [sentence["text"] for sentence in response[idx]["sentences"]]
         }
+
+        log_data = {
+            "custom_dimensions":
+            {
+                "text_sentiment": "sentiment": response[idx]["sentiment"]
+            }
+        }
+        logger.info('Text Processed Succesfully', extra=log_data)
 
     return response_dict
 
