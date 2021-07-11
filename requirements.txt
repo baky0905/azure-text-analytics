@@ -1,0 +1,33 @@
+asgiref==3.4.1
+autopep8==1.5.7
+azure-ai-textanalytics==5.1.0
+azure-common==1.1.27
+azure-core==1.16.0
+certifi==2021.5.30
+chardet==4.0.0
+click==8.0.1
+fastapi==0.66.0
+h11==0.12.0
+httptools==0.2.0 # httptools: It is a Python binding for the nodejs HTTP parser. This will only be required if you are deploying on a Linux machine.
+idna==2.10
+isodate==0.6.0
+msrest==0.6.21
+oauthlib==3.1.1
+pycodestyle==2.7.0
+pydantic==1.8.2
+python-dotenv==0.18.0
+PyYAML==5.4.1
+requests==2.25.1
+requests-oauthlib==1.3.0
+six==1.16.0
+starlette==0.14.2
+toml==0.10.2
+typing-extensions==3.10.0.0
+urllib3==1.26.6
+uvicorn==0.14.0
+uvloop==0.15.2 # vloop: It implements all the asyncio event loop APIs. This will only be required if you are deploying on a Linux machine
+watchgod==0.7
+websockets==9.1
+
+
+gunicorn==20.0.4 # gunicorn: Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. This will only be required if you are deploying on a Linux machine.
