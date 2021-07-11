@@ -1,6 +1,5 @@
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
-import requests as req
 from dotenv import load_dotenv
 import os
 
