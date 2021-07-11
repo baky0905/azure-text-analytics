@@ -13,7 +13,7 @@ app = FastAPI()
 logger = logging.getLogger(__name__)
 logger.setLevel(10)
 logger.addHandler(AzureLogHandler(
-    connection_string=os.getenv("INSTRUMENTATION_KEY")))
+    connection_string=os.getenv("INSTRUNENTATION_KEY")))
 
 
 class Model(BaseModel):
@@ -48,7 +48,7 @@ def sentiment_analysis_example(documents: Model):
         log_data = {
             "custom_dimensions":
             {
-                "text_sentiment": "sentiment": response[idx]["sentiment"]
+                "text_sentiment":  response[idx]["sentiment"]
             }
         }
         logger.info('Text Processed Succesfully', extra=log_data)
